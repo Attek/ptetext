@@ -152,4 +152,5 @@ class TextController extends Controller
             throw new NotFoundHttpException('A keresett oldal nem található.');
         }
     }
+
 }
