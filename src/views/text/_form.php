@@ -2,12 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\modules\text\widgets\CKEditor;
+use attek\text\widgets\CKEditor;
 use iutbay\yii2kcfinder\KCFinder;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\text\models\Text */
+/* @var $model attek\text\models\Text */
 /* @var $form yii\widgets\ActiveForm */
 
 
