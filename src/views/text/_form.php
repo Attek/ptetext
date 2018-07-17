@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use attek\text\widgets\CKEditor;
+use attek\text\models\Text;
 use iutbay\yii2kcfinder\KCFinder;
 
 
@@ -69,7 +70,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
 
 	                    ])  ?>
 
-                        <?= $form->field($model, 'status')->dropDownList(\app\modules\text\models\Text::statusLabels()) ?>
+                        <?= $form->field($model, 'status')->dropDownList(Text::statusLabels()) ?>
 
                         <div class="form-group">
                             <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
