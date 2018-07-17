@@ -2,7 +2,7 @@
 
 namespace attek\text\models\search;
 
-use app\modules\text\models\Text;
+use attek\text\models\Text;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
