@@ -2,9 +2,9 @@
 
 namespace attek\text\controllers;
 
+use attek\text\models\search\TextSearch;
 use Yii;
-use app\models\Text;
-use app\models\search\TextSearch;
+use attek\text\models\Text;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,7 +35,8 @@ class TextController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new TextSearch();
+
+    	$searchModel = new TextSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

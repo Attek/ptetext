@@ -4,6 +4,8 @@ namespace attek\text\models\base;
 
 use app\models\User;
 use Yii;
+use yii\db\ActiveRecord;
+
 /**
  * This is the model class for table "text".
  *
@@ -20,7 +22,7 @@ use Yii;
  * @property User $crUser
  * @property User $modUser
  */
-class TextBase extends ActiveRecordStatus
+class TextBase extends ActiveRecord
 {
     /**
      * @inheritdoc

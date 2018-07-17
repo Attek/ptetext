@@ -1,6 +1,6 @@
 {
-    "name": "attek/ptetext",
-    "description": "PTE Text engine for location-sensitive help",
+    "name": "attek/text",
+    "description": "Text engine for location-sensitive help",
     "type": "yii2-extension",
     "license": "MIT",
     "authors": [
@@ -9,7 +9,7 @@
             "email": "pest.attila@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "yiisoft/yii2": "~2.0.0",
         "2amigos/yii2-ckeditor-widget": "*",

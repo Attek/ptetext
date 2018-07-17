@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel attek\text\models\TextSearch */
+/* @var $searchModel app\modules\text\models\TextSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Texts');
@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'data-id' => $key,
                                 'data-url' => $url,
                                 'data-text' => Yii::t('app', 'To delete {title} text?',
-                                    ['surgery' => $model->title]),
+                                    ['title' => $model->title]),
                                 'data-pjax' => '0',
                             ]) : '';
                     },

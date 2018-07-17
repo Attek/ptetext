@@ -2,12 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\widgets\CKEditor;
+use app\modules\text\widgets\CKEditor;
 use iutbay\yii2kcfinder\KCFinder;
 
 
 /* @var $this yii\web\View */
-/* @var $model attek\text\models\Text */
+/* @var $model app\modules\text\models\Text */
 /* @var $form yii\widgets\ActiveForm */
 
 
@@ -69,20 +69,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
 
 	                    ])  ?>
 
-
-<?php /* echo $form->field($model, 'text')->widget(CKEditor::className(), [
-	'editorOptions' => [
-		'preset' => 'full',  //basic, standard, full
-            'inline' => false,
-            'filebrowserBrowseUrl' => 'browse-images',
-            'filebrowserUploadUrl' => 'upload-images',
-            'extraPlugins' => 'imageuploader',
-        ],
-    ]); */?>
-
-
-
-                        <?= $form->field($model, 'status')->dropDownList(\app\models\base\ActiveRecordStatus::statusLabels()) ?>
+                        <?= $form->field($model, 'status')->dropDownList(\app\modules\text\models\Text::statusLabels()) ?>
 
                         <div class="form-group">
                             <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

@@ -1,16 +1,12 @@
 <?php
 
-namespace attek\text;
+namespace app\modules\text;
 
 /**
  * text module definition class
  */
 class Module extends \yii\base\Module
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public $controllerNamespace = 'attek\text\controllers';
 
 	/**
 	 * {@inheritdoc}
