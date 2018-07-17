@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\text;
+namespace attek\text;
 
 /**
  * text module definition class

@@ -2,7 +2,7 @@
 
 namespace attek\text\models;
 
-use app\modules\text\models\base\TextBase;
+use attek\text\models\base\TextBase;
 use yii\behaviors\SluggableBehavior;
 
 class Text extends TextBase
