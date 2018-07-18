@@ -1,11 +1,29 @@
 <?php
 
-namespace attek\text\models;
+namespace attek\text\models\base;
 
-use attek\text\models\base\TextBase;
+use app\models\User;
+use Yii;
+use yii\db\ActiveRecord;
 use yii\behaviors\SluggableBehavior;
 
-class Text extends TextBase
+/**
+ * This is the model class for table "text".
+ *
+ * @property integer $id
+ * @property string $title
+ * @property string $slug
+ * @property string $text
+ * @property integer $cr_user
+ * @property string $cr_date
+ * @property integer $mod_user
+ * @property string $mod_date
+ * @property integer $status
+ *
+ * @property User $crUser
+ * @property User $modUser
+ */
+class Text extends ActiveRecord
 {
 
 	const ACTIVE = 1;
@@ -16,9 +34,9 @@ class Text extends TextBase
 	public static function statusLabels()
 	{
 		return [
-			self::ACTIVE => 'Aktív',
-			self::INACTIVE => 'Inaktív',
-			self::DELETED => 'Törölt',
+			self::ACTIVE => Yii::t('pte-text', 'Active'),
+			self::INACTIVE => Yii::t('pte-text', 'Inactive'),
+			self::DELETED => Yii::t('pte-text', 'Deleted'),
 		];
 	}
 
@@ -27,25 +45,80 @@ class Text extends TextBase
 		return $this->status == null ? null : self::statusLabels()[$this->status];
 	}
 
+	/**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'text';
+    }
 
-    public function behaviors()
+    /**
+     * @inheritdoc
+     */
+    public function rules()
     {
         return [
-            [
-                'class' => SluggableBehavior::className(),
-                'attribute' => 'title',
-                // 'slugAttribute' => 'slug', //isn't needed since our column is called
-                'ensureUnique' => true,
-            ],
+            [['title', 'slug'], 'required'],
+            [['text'], 'string'],
+            [['cr_user', 'mod_user', 'status'], 'integer'],
+            [['cr_date', 'mod_date'], 'safe'],
+            [['title', 'slug'], 'string', 'max' => 255],
+            [['cr_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['cr_user' => 'id']],
+            [['mod_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['mod_user' => 'id']],
         ];
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('pte-text', 'Id'),
+            'title' => Yii::t('pte-text', 'Title'),
+            'slug' => Yii::t('pte-text', 'Slug'),
+            'text' => Yii::t('pte-text', 'Text'),
+            'cr_user' => Yii::t('pte-text', 'Creation user'),
+            'cr_date' => Yii::t('pte-text', 'Creation time'),
+            'mod_user' => Yii::t('pte-text', 'Modification user'),
+            'mod_date' => Yii::t('pte-text', 'Modification time'),
+            'status' => Yii::t('pte-text', 'Status'),
+        ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCrUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'cr_user']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getModUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'mod_user']);
+    }
+
+	public function behaviors()
+	{
+		return [
+			[
+				'class' => SluggableBehavior::className(),
+				'attribute' => 'title',
+				// 'slugAttribute' => 'slug', //isn't needed since our column is called
+				'ensureUnique' => true,
+			],
+		];
+	}
 
 	public function getStatusForStyle()
 	{
 		if ($this->status == self::INACTIVE) return "warning text-warning ";
 		else if ($this->status == self::DELETED) return "danger text-danger ";
-		else if (method_exists($this, 'hasImportError') && $this->hasImportError()) return "warning text-warning ";
 		else return "";
 	}
-
 }

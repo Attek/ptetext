@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel attek\text\models\TextSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Texts');
+$this->title = Yii::t('pte-text', 'Texts');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="text-index">
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Html::tag('i', '', ['class' => 'fa-fw fa fa-keyboard-o']) . Yii::t('app', 'Create Text'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Html::tag('i', '', ['class' => 'fa-fw fa fa-keyboard-o']) . Yii::t('pte-text', 'Create Text'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'class' => 'activity-view-link',
                             'data-id' => $key,
                             'data-url' => $url,
-                            'data-title' => Yii::t('app', 'View Text'),
+                            'data-title' => Yii::t('pte-text', 'View Text'),
                             'data-pjax' => '0',
                         ]);
                     },
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'class' => 'activity-delete-link',
                                 'data-id' => $key,
                                 'data-url' => $url,
-                                'data-text' => Yii::t('app', 'To delete {title} text?',
+                                'data-text' => Yii::t('pte-text', 'To delete {title} text?',
                                     ['title' => $model->title]),
                                 'data-pjax' => '0',
                             ]) : '';

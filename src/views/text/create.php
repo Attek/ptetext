@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model attek\text\models\Text */
 
-$this->title = Yii::t('app', 'Create Text');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Texts'), 'url' => ['index']];
+$this->title = Yii::t('pte-text', 'Create Text');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('pte-text', 'Texts'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="text-create">

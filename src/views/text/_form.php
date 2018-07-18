@@ -41,7 +41,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
 
             <div class="well" id="role-form">
                 <header role="heading">
-                    <h2><?= Yii::t('app', 'Text'); ?></h2>
+                    <h2><?= Yii::t('pte-text', 'Text'); ?></h2>
                 </header>
                 <div class="row">
                     <div role="content" class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
@@ -73,7 +73,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                         <?= $form->field($model, 'status')->dropDownList(Text::statusLabels()) ?>
 
                         <div class="form-group">
-                            <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                            <?= Html::submitButton($model->isNewRecord ? Yii::t('pte-text', 'Create') : Yii::t('pte-text', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
                         </div>
 
                         <?php ActiveForm::end(); ?>

@@ -13,17 +13,17 @@ use yii\widgets\DetailView;
             'slug',
             'text:html',
             [
-                'label' => Yii::t('app', 'Creation user'),
+                'label' => Yii::t('pte-text', 'Creation user'),
                 'value' => $model->crUser != null ? $model->crUser->getName() : null,
             ],
             'cr_date',
             [
-                'label' => Yii::t('app', 'Modification user'),
+                'label' => Yii::t('pte-text', 'Modification user'),
                 'value' => $model->modUser != null ? $model->modUser->getName() : null,
             ],
             'mod_date',
             [
-                'label' => Yii::t('app', 'Status'),
+                'label' => Yii::t('pte-text', 'Status'),
                 'value' => $model->getStatus(),
             ],
         ],

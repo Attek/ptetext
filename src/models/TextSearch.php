@@ -1,8 +1,7 @@
 <?php
 
-namespace attek\text\models\search;
+namespace attek\text\models;
 
-use attek\text\models\Text;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
