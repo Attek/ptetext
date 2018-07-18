@@ -1,6 +1,6 @@
 <?php
 
-namespace attek\text\models\base;
+namespace attek\text\models;
 
 use app\models\User;
 use Yii;
