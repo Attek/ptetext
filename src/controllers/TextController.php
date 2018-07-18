@@ -2,7 +2,7 @@
 
 namespace attek\text\controllers;
 
-use attek\text\models\search\TextSearch;
+use attek\text\models\TextSearch;
 use Yii;
 use attek\text\models\Text;
 use yii\web\Controller;
