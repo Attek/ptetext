@@ -46,6 +46,8 @@ $form = ActiveForm::begin(
 
 ## Popover for contextual help
 ```php
+attek\text\assets\HelpAsset::register($this);
+
 echo Html::a(Html::tag('i', '', ['class' => 'fa fa-question-circle']), null,
                                 ['data-slug' => 'slug-name',  'data-toggle'=> 'popover', 'title' => 'Title for help'])
 ```                                
