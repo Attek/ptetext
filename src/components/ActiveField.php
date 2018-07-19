@@ -24,7 +24,8 @@ class ActiveField extends \yii\widgets\ActiveField
         if (!empty($content) && !empty($options['slug'])) {
             if (!empty($content)) {
                 $options['hint'] = Html::a(Html::tag('i', '', ['class' => 'fa fa-question-circle']), null,
-                    ['data-placement' => 'top',  'data-toggle'=> 'popover', 'data-slug' => $options['slug'], 'title' => $content]);
+                    ['data-toggle'=> 'popover', 'data-slug' => $options['slug'], 'title' => $content]);
+                //'data-placement' => 'top',
                 $options['tag'] = 'span';
                 $this->parts['{hint}'] = Html::activeHint($this->model, $this->attribute, $options);
                 return $this;
