@@ -8,6 +8,11 @@ namespace attek\text;
 class Module extends \yii\base\Module
 {
 
+	/**
+	 * @inheritdoc
+	 */
+	public $defaultRoute = 'text';
+
 	public $userClass;
 	/**
 	 * {@inheritdoc}

@@ -8,7 +8,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require attek/pte-text "0.0.3"
+php composer.phar require attek/pte-text "*"
 ```
 
 ## Database table

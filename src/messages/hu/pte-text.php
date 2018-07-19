@@ -18,8 +18,8 @@
  */
 return [
     'Active' => 'Aktív',
-    'Are you sure' => '',
-    'Are you sure you want to delete this item?' => '',
+    'Are you sure' => 'Biztos',
+    'Are you sure you want to delete this item?' => 'Biztos törlöd ezt az elemet?',
     'Close' => 'Bezár',
     'Create' => 'Létrehozás',
     'Create Text' => 'Szöveg létrehozása',
