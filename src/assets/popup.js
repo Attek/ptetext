@@ -4,7 +4,7 @@ jQuery(document).ready(function ($) {
         content: function() {
             var data = $(this);
             return $.ajax({
-                url: '/text/ajax',
+                url: '/text/text/ajax',
                 dataType: 'html',
                 method: 'POST',
                 async: false,

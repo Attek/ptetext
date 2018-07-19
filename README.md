@@ -26,3 +26,22 @@ Set in config file (web.php)
     ...
 ]
 ```
+
+## Pop for field contextual help
+```php
+attek\text\assets\HelpAsset::register($this);
+
+...
+$form = ActiveForm::begin( 
+    [ 'fieldConfig' => [ 'class' => 'attek\text\components\ActiveField' ]
+...
+ $form->field( $model, 'name' )->textInput()->hint('Text for popup', ['slug' => 'slug-name'])     
+...
+```
+
+
+## Pop for contextual help
+```php
+echo Html::a(Html::tag('i', '', ['class' => 'fa fa-question-circle']), null,
+                                ['data-slug' => 'slug-name',  'data-toggle'=> 'popover', 'title' => 'Title for help'])
+```                                

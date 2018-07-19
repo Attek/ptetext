@@ -6,11 +6,11 @@
  * Time: 12:15
  */
 
-namespace attek\ptesaml\assets;
+namespace attek\text\assets;
 
 use yii\web\AssetBundle;
 
-class HelpAssets extends AssetBundle {
+class HelpAsset extends AssetBundle {
 
 
 	/**
