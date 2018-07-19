@@ -8,6 +8,7 @@
 
 namespace attek\ptesaml\assets;
 
+use yii\web\AssetBundle;
 
 class HelpAssets extends AssetBundle {
 
