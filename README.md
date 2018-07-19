@@ -11,6 +11,9 @@ Either run
 php composer.phar require attek/pte-text "0.0.3"
 ```
 
+## Database table
+yii migrate --migrationPath=@attek/text/migrations
+
 ## Usage
 
 Set in config file (web.php)
