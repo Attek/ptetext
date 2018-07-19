@@ -6,6 +6,7 @@ use app\models\User;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\SluggableBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "text".
@@ -20,8 +21,6 @@ use yii\behaviors\SluggableBehavior;
  * @property string $mod_date
  * @property integer $status
  *
- * @property User $crUser
- * @property User $modUser
  */
 class Text extends ActiveRecord
 {
@@ -64,8 +63,6 @@ class Text extends ActiveRecord
             [['cr_user', 'mod_user', 'status'], 'integer'],
             [['cr_date', 'mod_date'], 'safe'],
             [['title', 'slug'], 'string', 'max' => 255],
-            [['cr_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['cr_user' => 'id']],
-            [['mod_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['mod_user' => 'id']],
         ];
     }
 
@@ -120,5 +117,21 @@ class Text extends ActiveRecord
 		if ($this->status == self::INACTIVE) return "warning text-warning ";
 		else if ($this->status == self::DELETED) return "danger text-danger ";
 		else return "";
+	}
+
+	public function beforeSave( $insert ) {
+		if (parent::beforeSave($insert)) {
+			if ($this->isNewRecord) {
+				if ($this->cr_date == null) $this->cr_date = new Expression('NOW()');
+				$this->cr_user = Yii::$app->user->id;
+
+			} else {
+				$this->mod_date = new Expression('NOW()');
+				$this->mod_user = Yii::$app->user->id;
+			}
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

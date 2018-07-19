@@ -64,6 +64,10 @@ class TextController extends Controller
         ]);
     }
 
+	/**
+	 * @return mixed|string
+	 * @throws NotFoundHttpException
+	 */
     public function actionAjax()
     {
         if (Yii::$app->request->isAjax) {

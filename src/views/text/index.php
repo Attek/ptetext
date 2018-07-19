@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use attek\text\models\Text;
 /* @var $this yii\web\View */
 /* @var $searchModel attek\text\models\TextSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -28,17 +29,22 @@ $this->params['breadcrumbs'][] = $this->title;
 		    'dataProvider' => $dataProvider,
 		    'filterModel'  => $searchModel,
 		    'rowOptions'   => function ( $model, $key, $index ) {
+	            /** @var $model \attek\text\models\Text */
 			    return [ 'class' => $model->getStatusForStyle() . ( $index % 2 == 0 ? "even" : "odd" ) ];
 		    },
 		    'columns'      => [
 			    [ 'class' => 'yii\grid\SerialColumn' ],
 
 			    'title',
+			    'slug',
 			    [
-				    'attribute' => 'cr_user',
-				    'value'     => 'crUser.name',
+				    'attribute' => 'status',
+				    'value' => function($model) {
+					    /** @var $model \attek\text\models\Text */
+					    return $model->getStatus();
+				    },
+				    'filter' => Text::statusLabels()
 			    ],
-
 			    [
 				    'class'    => 'yii\grid\ActionColumn',
 				    'template' => '{view} {update} {delete}',
