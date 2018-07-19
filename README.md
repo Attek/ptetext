@@ -27,7 +27,7 @@ Set in config file (web.php)
 ]
 ```
 
-## Pop for field contextual help
+## Popover for field contextual help
 ```php
 attek\text\assets\HelpAsset::register($this);
 
@@ -40,7 +40,7 @@ $form = ActiveForm::begin(
 ```
 
 
-## Pop for contextual help
+## Popover for contextual help
 ```php
 echo Html::a(Html::tag('i', '', ['class' => 'fa fa-question-circle']), null,
                                 ['data-slug' => 'slug-name',  'data-toggle'=> 'popover', 'title' => 'Title for help'])
