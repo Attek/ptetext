@@ -9,7 +9,7 @@
 namespace attek\text\components;
 use yii\helpers\Html;
 
-class PteActiveField extends \yii\widgets\ActiveField
+class ActiveField extends \yii\widgets\ActiveField
 {
     public $template = "{label}\n{hint}\n{input}\n{error}";
 
@@ -24,7 +24,7 @@ class PteActiveField extends \yii\widgets\ActiveField
         if (!empty($content) && !empty($options['slug'])) {
             if (!empty($content)) {
                 $options['hint'] = Html::a(Html::tag('i', '', ['class' => 'fa fa-question-circle']), null,
-                    ['data-placement' => 'top',  'data-toggle'=> 'tooltip', 'title' => $content]);
+                    ['data-placement' => 'top',  'data-toggle'=> 'tooltip', 'data-slug' => $options['slug'], 'title' => $content]);
                 $options['tag'] = 'span';
                 $this->parts['{hint}'] = Html::activeHint($this->model, $this->attribute, $options);
                 return $this;
