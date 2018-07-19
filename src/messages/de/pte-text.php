@@ -36,6 +36,7 @@ return [
     'Reset' => '',
     'Search' => '',
     'Slug' => '',
+    'Something went wrong, please try again later!' => '',
     'Status' => '',
     'Text' => '',
     'Texts' => '',
