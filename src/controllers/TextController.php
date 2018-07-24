@@ -138,8 +138,6 @@ class TextController extends Controller
         $model = $this->findModel($id);
         $model->status = Text::DELETED;
         $model->save(false);
-
-        return $this->redirect(['index']);
     }
 
     /**
